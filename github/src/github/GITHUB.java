@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package github;
 
-/**
- *
- * @author Yuli
- */
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.JOptionPane;
+
+
 public class GITHUB extends javax.swing.JFrame {
 
     /**
@@ -63,14 +60,29 @@ public class GITHUB extends javax.swing.JFrame {
         });
 
         jButton2.setText("Reloj");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Calculadora");
 
         jButton4.setText("Cuadro Movil");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Temporalizador");
 
         jButton6.setText("Agenda");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Convertidor");
 
@@ -171,8 +183,62 @@ public class GITHUB extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        Cronometro cro = new Cronometro();
+        cro.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       //Reloj re = new Reloj();
+        //re.setVisible(true); 
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        agenda ag = new agenda();
+        ag.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        ArrayList z1 = new ArrayList();
+        ArrayList z2 = new ArrayList();
+        ArrayList z3 = new ArrayList();
+        int opc = 0;
+        String x1,x2,x3,x4,x5,x6;
+        x6 = JOptionPane.showInputDialog("Escribe Nombre y Apellido");
+        JOptionPane.showMessageDialog(null, " Bienvenido "  +x6+  " Ha ingresado a su orgnizador de eventos");
+        JOptionPane.showMessageDialog(null,"jueves, 8 de Noviembre de 2018");
+        opc = JOptionPane.showConfirmDialog(null,"Desea ingresar algun evento");
+        while (opc == 0) {
+            x1 = JOptionPane.showInputDialog(null, "Ingrese el nombre del evento");
+            x2 = JOptionPane.showInputDialog(null, " Ingrese la fecha de evento: DD/MM/AAAA");
+            x5 = "\n\n Prioridad del evento"+" \n"+"\n\n A.- Baja" +" \n\n B.- Media"+"\n\n C.- Urgente";
+            x3 = JOptionPane.showInputDialog(null, x5);
+            x4 = "Evento:"+x1+"\t Fecha"+x2+"\t Prioridad";
+            
+            if(x3.equals("A"))
+            {z1.add(x4+" Baja");}
+            else if(x3.equals("B"))
+            {z1.add(x4+" Media");}
+            else if (x3.equals("C"))
+                    {z1.add(x4+" Urgente");}
+            else {System.out.println("");
+            return;}
+            
+            opc = JOptionPane.showConfirmDialog(null, "¿Deseas agregar otro evento?");
+        }
+        Iterator y1 = z1.iterator();
+        Iterator y2 = z2.iterator();
+        Iterator y3 = z3.iterator();
+        
+        while(y3.hasNext())
+        {JOptionPane.showMessageDialog(null, y3.next() );}
+        
+        while(y2.hasNext())
+        {JOptionPane.showMessageDialog(null, y2.next());}
+        
+        while(y1.hasNext())
+        {JOptionPane.showMessageDialog(null, y1.next());}
+            
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
